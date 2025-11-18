@@ -21,6 +21,18 @@
     <input type="text" name="classe" value="<?=$personagem['classe']?>"><br>
     <label>Sub-classe:</label>
     <input type="text" name="subclasse" value="<?=$personagem['subclasse']?>"><br>
+    <label>Força:</label>
+    <input type="text" name="forca" value="<?=$personagem['forca']?>"><br>
+    <label>Destreza:</label>
+    <input type="text" name="destreza" value="<?=$personagem['destreza']?>"><br>
+    <label>Constituição:</label>
+    <input type="text" name="constituicao" value="<?=$personagem['constituicao']?>"><br>
+    <label>Inteligência:</label>
+    <input type="text" name="inteligencia" value="<?=$personagem['inteligencia']?>"><br>
+    <label>Sabedoria:</label>
+    <input type="text" name="sabedoria" value="<?=$personagem['sabedoria']?>"><br>
+    <label>Carisma:</label>
+    <input type="text" name="carisma" value="<?=$personagem['carisma']?>"><br>
 
     <input type="submit" value="Alterar personagem">
 </form>
@@ -29,4 +41,5 @@
     }else{
         echo "<h2>Nenhum personagem cadastrado!</h2>";
     }
+
 ?>
