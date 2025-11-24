@@ -6,7 +6,7 @@ Tallison Miranda: Página Admin, Cadastros.
 
 Luiz Dias: Front-end, Cabeçalho e Rodape.
 
-Athur Nunes: Página de Jogadores e Personagens.
+Arthur Nunes: Página de Jogadores e Personagens.
 
 Vinícius Angelo: Página de Discussões.
 
