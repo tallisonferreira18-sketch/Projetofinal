@@ -22,13 +22,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             jogador = '$jogador',
             especie = '$especie',
             classe = '$classe',
-            subclasse = '$subclasse'
+            subclasse = '$subclasse',
             forca = '$forca',
             destreza = '$destreza',
             constituicao = '$constituicao',
             inteligencia = '$inteligencia',
             sabedoria = '$sabedoria',
-            carisma = '$carisma'
+            carisma = '$carisma',
             WHERE id = '$id'";
 
     $executa = mysqli_query($conexao, $sql);
