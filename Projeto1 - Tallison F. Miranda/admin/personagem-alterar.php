@@ -28,7 +28,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             constituicao = '$constituicao',
             inteligencia = '$inteligencia',
             sabedoria = '$sabedoria',
-            carisma = '$carisma',
+            carisma = '$carisma'
             WHERE id = '$id'";
 
     $executa = mysqli_query($conexao, $sql);
@@ -43,4 +43,5 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 }else{
     echo "<h2>Acesso negado.</h2>";
     echo "<a href='?pg=personagem-admin'>Voltar</a>";
+
 }
