@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 24/11/2025 às 20:30
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.2.12
+-- Host: localhost:3310
+-- Tempo de geração: 26-Nov-2025 às 15:11
+-- Versão do servidor: 10.4.11-MariaDB
+-- versão do PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `projeto_1_tallison_f_miranda_`
+-- Banco de dados: `projetofinal_ded`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `jogadores`
+-- Estrutura da tabela `jogadores`
 --
 
 CREATE TABLE `jogadores` (
@@ -32,10 +33,10 @@ CREATE TABLE `jogadores` (
   `jogador` varchar(100) NOT NULL,
   `personagem` varchar(100) NOT NULL,
   `numero` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `jogadores`
+-- Extraindo dados da tabela `jogadores`
 --
 
 INSERT INTO `jogadores` (`id`, `jogador`, `personagem`, `numero`) VALUES
@@ -44,7 +45,7 @@ INSERT INTO `jogadores` (`id`, `jogador`, `personagem`, `numero`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `personagens`
+-- Estrutura da tabela `personagens`
 --
 
 CREATE TABLE `personagens` (
@@ -61,10 +62,10 @@ CREATE TABLE `personagens` (
   `sabedoria` int(20) NOT NULL,
   `carisma` int(20) NOT NULL,
   `multclasse` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `personagens`
+-- Extraindo dados da tabela `personagens`
 --
 
 INSERT INTO `personagens` (`id`, `personagem`, `jogador`, `especie`, `classe`, `subclasse`, `forca`, `destreza`, `constituicao`, `inteligencia`, `sabedoria`, `carisma`, `multclasse`) VALUES
@@ -75,19 +76,19 @@ INSERT INTO `personagens` (`id`, `personagem`, `jogador`, `especie`, `classe`, `
 --
 
 --
--- Índices de tabela `jogadores`
+-- Índices para tabela `jogadores`
 --
 ALTER TABLE `jogadores`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `personagens`
+-- Índices para tabela `personagens`
 --
 ALTER TABLE `personagens`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
