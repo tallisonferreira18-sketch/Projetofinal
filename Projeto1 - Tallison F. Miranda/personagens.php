@@ -10,38 +10,52 @@
         <?php
         require_once "admin/config.inc.php";
 
-        // 1. Buscar todos os jogadores distintos que têm personagens
-        $sql_jogadores = "SELECT DISTINCT jogador FROM personagens ORDER BY jogador ASC";
-        $resultado_jogadores = mysqli_query($conexao, $sql_jogadores);
+        // 1. Otimização: Buscar todos os personagens e dados dos jogadores em uma única consulta
+        $sql = "SELECT p.*, j.numero as contato 
+                FROM personagens p 
+                LEFT JOIN jogadores j ON p.jogador = j.jogador 
+                ORDER BY p.jogador ASC, p.personagem ASC";
+        $resultado = mysqli_query($conexao, $sql);
 
-        if(mysqli_num_rows($resultado_jogadores) > 0){
+        $jogadores = [];
+        if ($resultado && mysqli_num_rows($resultado) > 0) {
+            while ($personagem = mysqli_fetch_assoc($resultado)) {
+                // Agrupa os personagens por jogador
+                $jogadores[$personagem['jogador']]['personagens'][] = $personagem;
+                // Armazena o contato do jogador (apenas uma vez)
+                if (!isset($jogadores[$personagem['jogador']]['contato'])) {
+                    $jogadores[$personagem['jogador']]['contato'] = $personagem['contato'];
+                }
+            }
+        }
+
+        if(!empty($jogadores)){
         ?>
         <div class="accordion" id="accordionJogadores">
             <?php
-            // Itera sobre cada jogador
-            while($jogador_data = mysqli_fetch_assoc($resultado_jogadores)){
-                $jogador_nome = $jogador_data['jogador'];
+            // 2. Itera sobre o array de jogadores já agrupado
+            foreach($jogadores as $jogador_nome => $dados_jogador){
                 // ID único para o collapse do Bootstrap
                 $collapseId = 'collapse' . preg_replace('/[^a-zA-Z0-9]/', '', $jogador_nome);
             ?>
             <div class="accordion-item glass-card mb-3">
                 <h2 class="accordion-header" id="heading-<?= $collapseId ?>">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $collapseId ?>" aria-expanded="false" aria-controls="<?= $collapseId ?>">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $collapseId ?>" aria-expanded="false" aria-controls="<?= $collapseId ?>" title="Personagens: <?= count($dados_jogador['personagens']) ?>">
                         <i class="bi bi-person-circle me-3 fs-4"></i>
-                        <span class="fw-bold fs-5"><?= htmlspecialchars($jogador_nome) ?></span>
+                        <div class="d-flex justify-content-between w-100 align-items-center pe-3">
+                            <span class="fw-bold fs-5"><?= htmlspecialchars($jogador_nome) ?></span>
+                            <?php if (!empty($dados_jogador['contato'])): ?>
+                                <span class="badge bg-secondary-subtle text-secondary-emphasis rounded-pill">
+                                    <i class="bi bi-telephone-fill me-1"></i> <?= htmlspecialchars($dados_jogador['contato']) ?>
+                                </span>
+                            <?php endif; ?>
+                        </div>
                     </button>
                 </h2>
                 <div id="<?= $collapseId ?>" class="accordion-collapse collapse" aria-labelledby="heading-<?= $collapseId ?>" data-bs-parent="#accordionJogadores">
                     <div class="accordion-body">
-                        <?php
-                        // 2. Para cada jogador, buscar seus personagens
-                        $stmt = mysqli_prepare($conexao, "SELECT * FROM personagens WHERE jogador = ? ORDER BY personagem ASC");
-                        mysqli_stmt_bind_param($stmt, "s", $jogador_nome);
-                        mysqli_stmt_execute($stmt);
-                        $resultado_personagens = mysqli_stmt_get_result($stmt);
-                        ?>
                         <div class="row g-4">
-                            <?php while($dados = mysqli_fetch_array($resultado_personagens)){ ?>
+                            <?php foreach($dados_jogador['personagens'] as $dados){ ?>
                             <div class="col-md-6 col-lg-4">
                                 <div class="glass-card p-4 h-100" style="position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.1)">
                                     <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: var(--purple-gradient); opacity: 0.1; border-radius: 50%;"></div>
@@ -98,7 +112,6 @@
                             </div>
                             <?php } ?>
                         </div>
-                        <?php mysqli_stmt_close($stmt); ?>
                     </div>
                 </div>
             </div>
