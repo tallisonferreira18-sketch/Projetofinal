@@ -19,9 +19,9 @@
                         <h3 class="mb-0" style="color: var(--primary-cyan);">Sobre a Campanha</h3>
                     </div>
                     <p class="text-secondary mb-0" style="line-height: 1.8;">
-                        Plataforma dedicada à organização de campanhas de D&D. 
-                        Gerencie jogadores, personagens e todas as informações 
-                        importantes da sua aventura épica de forma moderna e intuitiva.
+                        Curse of Strahd é uma campanha de terror gótico em que os jogadores ficam presos na sombria Barovia, uma terra sem sol dominada pelo vampiro Strahd. Diferente das aventuras tradicionais, aqui o vilão já venceu, a população vive traumatizada e quase tudo no cenário tenta matar você — de lobos e bruxas a criaturas folclóricas bizarras. O clima é de desespero constante, com cada cidade marcada pelo domínio tirânico do vampiro.
+
+Ao longo da jornada, o grupo explora montanhas geladas, templos macabros e, por fim, o sinistro Castelo Ravenloft. Um elemento especial da campanha é o baralho Tarroka, usado por Madame Eva para gerar de forma aleatória aliados, itens importantes e destinos, fazendo com que cada sessão seja única e imprevisível.
                     </p>
                 </div>
             </div>
