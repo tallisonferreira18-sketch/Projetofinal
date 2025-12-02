@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3310
--- Tempo de geração: 26-Nov-2025 às 15:11
--- Versão do servidor: 10.4.11-MariaDB
--- versão do PHP: 7.4.3
+-- Host: 127.0.0.1
+-- Tempo de geração: 02/12/2025 às 22:25
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `jogadores`
+-- Estrutura para tabela `jogadores`
 --
 
 CREATE TABLE `jogadores` (
@@ -33,19 +32,20 @@ CREATE TABLE `jogadores` (
   `jogador` varchar(100) NOT NULL,
   `personagem` varchar(100) NOT NULL,
   `numero` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `jogadores`
+-- Despejando dados para a tabela `jogadores`
 --
 
 INSERT INTO `jogadores` (`id`, `jogador`, `personagem`, `numero`) VALUES
-(1, 'Tallison', 'Apollo', '83988885555');
+(1, 'Tallison', 'Apollo', '83 988885555'),
+(2, 'Geovanna', 'Venus', '83 977774444');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `personagens`
+-- Estrutura para tabela `personagens`
 --
 
 CREATE TABLE `personagens` (
@@ -62,46 +62,59 @@ CREATE TABLE `personagens` (
   `sabedoria` int(20) NOT NULL,
   `carisma` int(20) NOT NULL,
   `multclasse` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `personagens`
+-- Despejando dados para a tabela `personagens`
 --
 
 INSERT INTO `personagens` (`id`, `personagem`, `jogador`, `especie`, `classe`, `subclasse`, `forca`, `destreza`, `constituicao`, `inteligencia`, `sabedoria`, `carisma`, `multclasse`) VALUES
-(1, 'Apollo', 'Tallison', 'Elfo', 'Druida', 'Círculo da Terra', 8, 13, 14, 10, 15, 12, '');
+(1, 'Apollo', 'Tallison', 'Elfo', 'Druida', 'Círculo da Terra', 8, 13, 14, 10, 15, 12, ''),
+(2, 'Venus', 'Geovanna', 'Humano', 'Guerreiro', 'Campeão', 15, 12, 14, 10, 13, 8, 'Clérigo');
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `jogadores`
+-- Índices de tabela `jogadores`
 --
 ALTER TABLE `jogadores`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `jogador` (`jogador`);
 
 --
--- Índices para tabela `personagens`
+-- Índices de tabela `personagens`
 --
 ALTER TABLE `personagens`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `jogador_nome` (`jogador`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `jogadores`
 --
 ALTER TABLE `jogadores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `personagens`
 --
 ALTER TABLE `personagens`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Restrições para tabelas despejadas
+--
+
+--
+-- Restrições para tabelas `personagens`
+--
+ALTER TABLE `personagens`
+  ADD CONSTRAINT `jogador_nome` FOREIGN KEY (`jogador`) REFERENCES `jogadores` (`jogador`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
