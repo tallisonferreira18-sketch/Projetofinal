@@ -15,6 +15,29 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sabedoria = (int)$_POST["sabedoria"];
     $carisma = (int)$_POST["carisma"];
 
+    $sqlCheck = "SELECT jogador FROM jogadores WHERE jogador = '$jogador' LIMIT 1";
+    $resultCheck = mysqli_query($conexao, $sqlCheck);
+
+    if (mysqli_num_rows($resultCheck) == 0) {
+
+        echo '<div class="glass-card p-4" style="background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3);">
+                <div class="d-flex align-items-center mb-3">
+                    <div style="width: 50px; height: 50px; background: rgba(239, 68, 68, 0.3); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                        <i class="bi bi-exclamation-octagon-fill fs-4" style="color: #ef4444;"></i>
+                    </div>
+                    <div>
+                        <h4 class="mb-1" style="color: #ef4444;">Jogador não encontrado!</h4>
+                        <p class="mb-0 text-secondary">O nome <strong>'.$jogador.'</strong> não está cadastrado na tabela de jogadores.</p>
+                    </div>
+                </div>
+                <a href="?pg=personagem-form" class="btn" style="background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.4); color: #ef4444; border-radius: 12px; padding: 0.75rem 2rem;">
+                    <i class="bi bi-arrow-left me-2"></i> Tentar Novamente
+                </a>
+              </div>';
+
+        exit;
+    }
+
     $sql = "INSERT INTO personagens (personagem, jogador, especie, classe, subclasse, multclasse, forca, destreza, constituicao, inteligencia, sabedoria, carisma)
             VALUES ('$personagem', '$jogador', '$especie', '$classe', '$subclasse', '$multclasse', $forca, $destreza, $constituicao, $inteligencia, $sabedoria, $carisma)";
     
@@ -67,3 +90,4 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
           </div>';
 }
 ?>
+
