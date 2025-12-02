@@ -2,7 +2,7 @@
     <div class="content-wrapper">
         <div class="text-center mb-5 pb-4">
             <h1 class="display-2 fw-bold mb-4 gradient-text" style="font-size: 3rem;">
-                <i class="bi bi-people me-3"></i> Jogadores
+                <i class="bi bi-people me-3"></i> Jogadores e Personagens
             </h1>
             <p class="lead fs-5">Explore os jogadores da campanha e seus respectivos heróis</p>
         </div>
