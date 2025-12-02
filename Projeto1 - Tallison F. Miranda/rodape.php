@@ -13,8 +13,7 @@
                 <h5 class="mb-3" style="color: var(--primary-cyan);">Links Rápidos</h5>
                 <ul class="list-unstyled">
                     <li class="mb-2"><a href="?pg=conteudo" class="text-decoration-none text-secondary" style="transition: color 0.3s;"><i class="bi bi-house me-2"></i> Home</a></li>
-                    <li class="mb-2"><a href="?pg=jogadores" class="text-decoration-none text-secondary" style="transition: color 0.3s;"><i class="bi bi-people me-2"></i> Jogadores</a></li>
-                    <li class="mb-2"><a href="?pg=personagens" class="text-decoration-none text-secondary" style="transition: color 0.3s;"><i class="bi bi-person-badge me-2"></i> Personagens</a></li>
+                    <li class="mb-2"><a href="?pg=personagens" class="text-decoration-none text-secondary" style="transition: color 0.3s;"><i class="bi bi-people me-2"></i> Jogadores</a></li>
                     <li><a href="admin/login.php" class="text-decoration-none text-secondary" style="transition: color 0.3s;"><i class="bi bi-shield-lock me-2"></i> Admin</a></li>
                 </ul>
             </div>
