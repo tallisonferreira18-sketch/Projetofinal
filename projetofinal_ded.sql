@@ -61,14 +61,13 @@ CREATE TABLE `personagens` (
   `inteligencia` int(20) NOT NULL,
   `sabedoria` int(20) NOT NULL,
   `carisma` int(20) NOT NULL,
-  `multclasse` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `personagens`
 --
 
-INSERT INTO `personagens` (`id`, `personagem`, `jogador`, `especie`, `classe`, `subclasse`, `forca`, `destreza`, `constituicao`, `inteligencia`, `sabedoria`, `carisma`, `multclasse`) VALUES
+INSERT INTO `personagens` (`id`, `personagem`, `jogador`, `especie`, `classe`, `subclasse`, `forca`, `destreza`, `constituicao`, `inteligencia`, `sabedoria`, `carisma`) VALUES
 (1, 'Apollo', 'Tallison', 'Elfo', 'Druida', 'Círculo da Terra', 8, 13, 14, 10, 15, 12, ''),
 (2, 'Venus', 'Geovanna', 'Humano', 'Guerreiro', 'Campeão', 15, 12, 14, 10, 13, 8, 'Clérigo');
 
