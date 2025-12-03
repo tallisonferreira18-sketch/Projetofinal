@@ -3,6 +3,7 @@
 
 require_once "admin/config.inc.php";
 
+// Recebe o comando pra salvar os dados do formulário
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $nome = trim($_POST["nome"]);
     $email = trim($_POST["email"]);
@@ -69,10 +70,11 @@ $query_postagens = "
         jogadores.jogador AS nome,
         jogadores.email
     FROM postagens
-    JOIN jogadores ON postagens.id_usuario = jogadores.id;
+    JOIN jogadores ON postagens.id_usuario = jogadores.id
+    ORDER BY postagens.data_criacao DESC;
 ";
 
-$postagens = mysqli_query($conexao, $query_postagens) ?? "Em breve novas postagens...";
+$postagens = mysqli_query($conexao, $query_postagens);
 ?>
 
 <div class="container">
