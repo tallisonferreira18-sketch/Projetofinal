@@ -15,6 +15,11 @@
         </a>
     </li>
     <li class="nav-item">
+        <a class="nav-link nav-link-custom" href="?pg=discussoes">
+            <i class="bi bi-chat-dots"></i> Discussões
+        </a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link nav-link-custom" href="?pg=faleconosco">
             <i class="bi bi-envelope"></i> Contato
         </a>
@@ -30,3 +35,4 @@
         </button>
     </li>
 </ul>
+
