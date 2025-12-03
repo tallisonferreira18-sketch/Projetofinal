@@ -179,7 +179,7 @@
         </div>
         <?php
         }
-        // É uma boa prática fechar a conexão com o banco de dados ao final do script para liberar recursos no servidor.
+        
         mysqli_close($conexao);
         ?>
     </div>
