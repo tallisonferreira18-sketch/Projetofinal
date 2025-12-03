@@ -37,7 +37,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
-    $sql = "INSERT INTO personagens (personagem, jogador, especie, classe, subclasse, multclasse, forca, destreza, constituicao, inteligencia, sabedoria, carisma)
+    $sql = "INSERT INTO personagens (personagem, jogador, especie, classe, subclasse, forca, destreza, constituicao, inteligencia, sabedoria, carisma)
             VALUES ('$personagem', '$jogador', '$especie', '$classe', '$subclasse', '$forca', '$destreza', '$constituicao', '$inteligencia', '$sabedoria', '$carisma')";
     
     $executa = mysqli_query($conexao, $sql);
@@ -89,4 +89,5 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
           </div>';
 }
 ?>
+
 
