@@ -74,15 +74,6 @@ if(mysqli_num_rows($resultado) > 0){
                         </div>
                     </div>
                     
-                    <div class="mb-3">
-                        <label for="multclasse" class="form-label mb-2" style="color: var(--primary-cyan); font-weight: 600;">
-                            <i class="bi bi-diagram-3 me-2"></i> Multiclasse
-                        </label>
-                        <input type="text" class="form-control" 
-                               id="multclasse" name="multclasse" 
-                               style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); color: var(--text-primary); border-radius: 12px; padding: 0.75rem 1rem;"
-                               value="<?= htmlspecialchars($personagem['multclasse']) ?>">
-                    </div>
                     
                     <hr class="my-4" style="border-color: rgba(99, 102, 241, 0.2);">
                     

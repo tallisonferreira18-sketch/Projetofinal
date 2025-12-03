@@ -7,7 +7,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $especie = mysqli_real_escape_string($conexao, $_POST["especie"]);
     $classe = mysqli_real_escape_string($conexao, $_POST["classe"]);
     $subclasse = mysqli_real_escape_string($conexao, $_POST["subclasse"]);
-    $multclasse = mysqli_real_escape_string($conexao, $_POST["multclasse"]);
     $forca = (int)$_POST["forca"];
     $destreza = (int)$_POST["destreza"];
     $constituicao = (int)$_POST["constituicao"];
@@ -39,7 +38,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     $sql = "INSERT INTO personagens (personagem, jogador, especie, classe, subclasse, multclasse, forca, destreza, constituicao, inteligencia, sabedoria, carisma)
-            VALUES ('$personagem', '$jogador', '$especie', '$classe', '$subclasse', '$multclasse', $forca, $destreza, $constituicao, $inteligencia, $sabedoria, $carisma)";
+            VALUES ('$personagem', '$jogador', '$especie', '$classe', '$subclasse', '$forca', '$destreza', '$constituicao', '$inteligencia', '$sabedoria', '$carisma')";
     
     $executa = mysqli_query($conexao, $sql);
     if($executa) {

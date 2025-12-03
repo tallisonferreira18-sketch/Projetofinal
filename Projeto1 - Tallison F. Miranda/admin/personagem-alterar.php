@@ -7,7 +7,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $especie = mysqli_real_escape_string($conexao, $_POST["especie"]);
     $classe = mysqli_real_escape_string($conexao, $_POST["classe"]);
     $subclasse = mysqli_real_escape_string($conexao, $_POST["subclasse"]);
-    $multclasse = mysqli_real_escape_string($conexao, $_POST["multclasse"]);
     $forca = (int)$_POST["forca"];
     $destreza = (int)$_POST["destreza"];
     $constituicao = (int)$_POST["constituicao"];
@@ -22,7 +21,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             especie = '$especie',
             classe = '$classe',
             subclasse = '$subclasse',
-            multclasse = '$multclasse',
             forca = $forca,
             destreza = $destreza,
             constituicao = $constituicao,
