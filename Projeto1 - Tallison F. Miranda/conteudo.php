@@ -89,36 +89,42 @@ Ao longo da jornada, o grupo explora montanhas geladas, templos macabros e, por 
         </div>
 
         <?php
+        // Inclui o arquivo de configuração para estabelecer a conexão com o banco de dados.
         require_once "admin/config.inc.php";
         
+        // Consulta SQL para contar o número total de registros na tabela 'jogadores'.
         $sql_jogadores = "SELECT COUNT(*) as total FROM jogadores";
         $result_jogadores = mysqli_query($conexao, $sql_jogadores);
         $total_jogadores = mysqli_fetch_assoc($result_jogadores)['total'];
         
+        // Consulta SQL para contar o número total de registros na tabela 'personagens'.
         $sql_personagens = "SELECT COUNT(*) as total FROM personagens";
         $result_personagens = mysqli_query($conexao, $sql_personagens);
         $total_personagens = mysqli_fetch_assoc($result_personagens)['total'];
+        // A conexão será fechada implicitamente no final do script ou em 'personagens.php' se for incluído.
         ?>
         
-        <div class="row text-center g-4 mb-5">
-            <div class="col-md-6">
-                <div class="stat-card" style="background: var(--cyan-gradient);">
-                    <div style="position: relative; z-index: 1;">
-                        <h2 class="display-1 fw-bold mb-3"><?= $total_jogadores ?></h2>
-                        <h4 class="mb-4"><i class="bi bi-people me-2"></i> Jogadores</h4>
-                        <a href="?pg=jogadores" class="btn btn-light btn-modern" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3);">
-                            Ver Jogadores <i class="bi bi-arrow-right ms-2"></i>
-                        </a>
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="stat-card text-center" style="background: linear-gradient(135deg, #00d4ff 0%, #6366f1 50%, #7c3aed 100%);">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <div style="position: relative; z-index: 1;">
+                                <h2 class="display-1 fw-bold mb-3"><?= $total_jogadores ?></h2>
+                                <h4 class="mb-0"><i class="bi bi-people me-2"></i> Jogadores</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="position: relative; z-index: 1;">
+                                <h2 class="display-1 fw-bold mb-3"><?= $total_personagens ?></h2>
+                                <h4 class="mb-0"><i class="bi bi-person-badge me-2"></i> Personagens</h4>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="stat-card" style="background: var(--purple-gradient);">
-                    <div style="position: relative; z-index: 1;">
-                        <h2 class="display-1 fw-bold mb-3"><?= $total_personagens ?></h2>
-                        <h4 class="mb-4"><i class="bi bi-person-badge me-2"></i> Personagens</h4>
+                    <hr class="my-4" style="border-color: rgba(255,255,255,0.3);">
+                    <div class="text-center">
                         <a href="?pg=personagens" class="btn btn-light btn-modern" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3);">
-                            Ver Personagens <i class="bi bi-arrow-right ms-2"></i>
+                            Ver Jogadores e Personagens <i class="bi bi-arrow-right ms-2"></i>
                         </a>
                     </div>
                 </div>
