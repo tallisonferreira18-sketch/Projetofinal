@@ -10,13 +10,8 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link nav-link-custom" href="?pg=jogadores">
-            <i class="bi bi-people"></i> Jogadores
-        </a>
-    </li>
-    <li class="nav-item">
         <a class="nav-link nav-link-custom" href="?pg=personagens">
-            <i class="bi bi-person-badge"></i> Personagens
+            <i class="bi bi-people"></i> Jogadores
         </a>
     </li>
     <li class="nav-item">
@@ -40,4 +35,5 @@
         </button>
     </li>
 </ul>
+
 

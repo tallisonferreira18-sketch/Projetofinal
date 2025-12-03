@@ -58,7 +58,6 @@ $sql_personagens = "CREATE TABLE IF NOT EXISTS `personagens` (
   `inteligencia` int(20) NOT NULL,
   `sabedoria` int(20) NOT NULL,
   `carisma` int(20) NOT NULL,
-  `multclasse` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci";
 
@@ -80,7 +79,7 @@ if ($row['total'] == 0) {
 $check_personagem = mysqli_query($conexao, "SELECT COUNT(*) as total FROM personagens");
 $row = mysqli_fetch_assoc($check_personagem);
 if ($row['total'] == 0) {
-    $sql_insert = "INSERT INTO `personagens` (`personagem`, `jogador`, `especie`, `classe`, `subclasse`, `forca`, `destreza`, `constituicao`, `inteligencia`, `sabedoria`, `carisma`, `multclasse`) VALUES ('Apollo', 'Tallison', 'Elfo', 'Druida', 'Círculo da Terra', 8, 13, 14, 10, 15, 12, '')";
+    $sql_insert = "INSERT INTO `personagens` (`personagem`, `jogador`, `especie`, `classe`, `subclasse`, `forca`, `destreza`, `constituicao`, `inteligencia`, `sabedoria`, `carisma`) VALUES ('Apollo', 'Tallison', 'Elfo', 'Druida', 'Círculo da Terra', 8, 13, 14, 10, 15, 12)";
     if (mysqli_query($conexao, $sql_insert)) {
         echo "<p style='color: green;'>Dados iniciais de personagens inseridos!</p>";
     }
@@ -92,4 +91,3 @@ echo "<hr>";
 echo "<h2>Setup concluído com sucesso!</h2>";
 echo "<p><a href='index.php'>Ir para o site</a> | <a href='admin/login.php'>Ir para o painel admin</a></p>";
 ?>
-
